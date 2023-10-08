@@ -17,6 +17,7 @@ export default defineNuxtConfig({
   sitemap: {
     strictNuxtContentPaths: true,
   },
+
   site: {
     url: "https://hotuns.me",
     identity: {

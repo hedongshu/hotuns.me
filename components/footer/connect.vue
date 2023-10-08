@@ -7,7 +7,7 @@
 
     <a
       href="mailto: hds1997@icloud.com"
-      class="block text-center w-full bg-sky-700 p-2 rounded-lg text-[#F1F2F4] mt-3 text-sm"
+      class="block text-center w-full bg-teal-500 p-2 text-[#F1F2F4] mt-3 text-sm rounded border-2 border-sky-950"
     >
       发送邮件
     </a>

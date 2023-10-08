@@ -78,7 +78,7 @@ defineOgImage();
 
 <template>
   <main class="container max-w-5xl mx-auto text-zinc-600">
-    <ArchiveHero />
+    <!-- <ArchiveHero /> -->
 
     <div class="px-3">
       <input
@@ -124,7 +124,7 @@ defineOgImage();
         <Icon
           name="mdi:code-less-than"
           size="30"
-          :class="{ 'text-sky-700 dark:text-sky-400': pageNumber > 1 }"
+          :class="{ 'text-teal-500 dark:text-sky-400': pageNumber > 1 }"
         />
       </button>
       <p>{{ pageNumber }} / {{ totalPage }}</p>
@@ -132,7 +132,7 @@ defineOgImage();
         <Icon
           name="mdi:code-greater-than"
           size="30"
-          :class="{ 'text-sky-700 dark:text-sky-400': pageNumber < totalPage }"
+          :class="{ 'text-teal-500 dark:text-sky-400': pageNumber < totalPage }"
         />
       </button>
     </div>

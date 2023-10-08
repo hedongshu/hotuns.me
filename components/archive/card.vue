@@ -38,7 +38,7 @@ withDefaults(defineProps<Props>(), {
       </div>
       <div class="sm:col-span-7 p-5" :class="{ 'sm:col-span-10': !image }">
         <h2
-          class="text-xl font-semibold text-black dark:text-zinc-300 pb-1 group-hover:text-sky-700 dark:group-hover:text-sky-400"
+          class="text-xl font-semibold text-black dark:text-zinc-300 pb-1 group-hover:text-teal-500 dark:group-hover:text-sky-400"
         >
           {{ title }}
         </h2>
@@ -60,7 +60,7 @@ withDefaults(defineProps<Props>(), {
           </div>
         </div>
         <div
-          class="flex group-hover:underline text-sky-700 dark:text-sky-400 items-center pt-2"
+          class="flex group-hover:underline text-teal-500 dark:text-sky-400 items-center pt-2"
         >
           <p>Read More</p>
           <LogoArrow />

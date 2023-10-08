@@ -1,89 +1,90 @@
 <script setup lang="ts">
-import type { BlogPost } from '@/types/blog'
+import type { BlogPost } from "@/types/blog";
 
-const { path } = useRoute()
+const { path } = useRoute();
 
-const { data: articles, error } = await useAsyncData(`blog-post-${path}`, () => queryContent(path).findOne())
+const { data: articles, error } = await useAsyncData(`blog-post-${path}`, () =>
+  queryContent(path).findOne()
+);
 
-if (error.value)
-  navigateTo('/404')
+if (error.value) navigateTo("/404");
 
 const data = computed<BlogPost>(() => {
   return {
-    title: articles.value?.title || 'no-title available',
-    description: articles.value?.description || 'no-descriptoin available',
-    image: articles.value?.image || '/nuxt-blog/no-image_cyyits.png',
-    alt: articles.value?.alt || 'no alter data available',
-    ogImage: articles.value?.ogImage || '/nuxt-blog/no-image_cyyits.png',
-    date: articles.value?.date || 'not-date-available',
+    title: articles.value?.title || "no-title available",
+    description: articles.value?.description || "no-descriptoin available",
+    image: articles.value?.image || "",
+    alt: articles.value?.alt || "no alter data available",
+    ogImage: articles.value?.ogImage || "",
+    date: articles.value?.date || "not-date-available",
     tags: articles.value?.tags || [],
     published: articles.value?.published || false,
-  }
-})
+  };
+});
 
 useHead({
-  title: data.value.title || '',
+  title: data.value.title || "",
   meta: [
-    { name: 'description', content: data.value.description },
+    { name: "description", content: data.value.description },
     {
-      name: 'description',
+      name: "description",
       content: data.value.description,
     },
     // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
-    { property: 'og:site_name', content: 'Hotuns\'s Blog' },
-    { hid: 'og:type', property: 'og:type', content: 'website' },
+    { property: "og:site_name", content: "Hotuns's Blog" },
+    { hid: "og:type", property: "og:type", content: "website" },
     {
-      property: 'og:url',
+      property: "og:url",
       content: `https://blog-nurHotuns.vercel.app/${path}`,
     },
     {
-      property: 'og:title',
+      property: "og:title",
       content: data.value.title,
     },
     {
-      property: 'og:description',
+      property: "og:description",
       content: data.value.description,
     },
     {
-      property: 'og:image',
+      property: "og:image",
       content: data.value.ogImage || data.value.image,
     },
     // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
-    { name: 'twitter:site', content: '@qdnvubp' },
-    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: "twitter:site", content: "@qdnvubp" },
+    { name: "twitter:card", content: "summary_large_image" },
     {
-      name: 'twitter:url',
+      name: "twitter:url",
       content: `https://blog-nurHotuns.vercel.app/${path}`,
     },
     {
-      name: 'twitter:title',
+      name: "twitter:title",
       content: data.value.title,
     },
     {
-      name: 'twitter:description',
+      name: "twitter:description",
       content: data.value.description,
     },
     {
-      name: 'twitter:image',
+      name: "twitter:image",
       content: data.value.ogImage || data.value.image,
     },
   ],
   link: [
     {
-      rel: 'canonical',
+      rel: "canonical",
       href: `https://blog-nurHotuns.vercel.app/${path}`,
     },
   ],
-})
+});
 
 defineOgImage({
   title: data.value.title,
   description: data.value.description,
-})
+});
 </script>
 
 <template>
-  <div class="px-6 container max-w-5xl mx-auto sm:grid grid-cols-12 gap-x-12 ">
+  <div class="px-6 container max-w-5xl mx-auto sm:grid grid-cols-12 gap-x-12">
     <div class="col-span-12 lg:col-span-9">
       <BlogHeader
         :title="data.title"
@@ -94,8 +95,7 @@ defineOgImage({
         :tags="data.tags"
       />
       <div
-        class="prose prose-pre:max-w-xs sm:prose-pre:max-w-full prose-sm sm:prose-base md:prose-lg
-        prose-h1:no-underline max-w-5xl mx-auto prose-zinc dark:prose-invert prose-img:rounded-lg"
+        class="prose prose-pre:max-w-xs sm:prose-pre:max-w-full prose-sm sm:prose-base md:prose-lg prose-h1:no-underline max-w-5xl mx-auto prose-zinc dark:prose-invert prose-img:rounded-lg"
       >
         <ContentRenderer v-if="articles" :value="articles">
           <template #empty>

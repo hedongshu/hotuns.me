@@ -60,7 +60,7 @@ useHead({
 </script>
 
 <template>
-  <div class="bg-[#F1F2F4] dark:text-zinc-300 dark:bg-[#151818]">
+  <div class="bg-[#dfddce] dark:text-zinc-300 dark:bg-[#151818]">
     <NuxtLayout>
       <NuxtLoadingIndicator />
       <NuxtPage />
@@ -91,5 +91,10 @@ useHead({
 
 html.dark {
   color-scheme: dark;
+}
+
+::selection {
+  background: #153e5d;
+  color: #f9f5de;
 }
 </style>

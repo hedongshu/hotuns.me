@@ -16,7 +16,7 @@ defineOgImage();
               <NuxtLink
                 to="https://github.com/hedongshu"
                 target="_blank"
-                class="p-2 bg-gray-300 text-gray-800 rounded-md"
+                class="p-2 bg-sky-950 text-amber-50 rounded-md"
                 aria-label="Github"
               >
                 <Icon name="fa:github" size="1em" />
@@ -24,7 +24,7 @@ defineOgImage();
               <!-- <NuxtLink
                 to="https://www.linkedin.com/in/nur-Hotuns/"
                 target="_blank"
-                class="p-2 bg-gray-300 text-gray-800 rounded-md"
+                class="p-2 bg-sky-950 text-amber-50 rounded-md"
                 aria-label="LinkedIn"
               >
                 <Icon name="fa:linkedin-square" size="1em" />
@@ -32,7 +32,7 @@ defineOgImage();
               <NuxtLink
                 to="https://twitter.com/hotuns_"
                 target="_blank"
-                class="p-2 bg-gray-300 text-gray-800 rounded-md"
+                class="p-2 bg-sky-950 text-amber-50 rounded-md"
                 aria-label="Twitter"
               >
                 <Icon name="fa:twitter-square" size="1em" />
@@ -40,7 +40,7 @@ defineOgImage();
               <!-- <NuxtLink
                 to="https://stackoverflow.com/users/16781395/nur-Hotuns"
                 target="_blank"
-                class="p-2 bg-gray-300 text-gray-800 rounded-md"
+                class="p-2 bg-sky-950 text-amber-50 rounded-md"
                 aria-label="StackOverflow"
               >
                 <Icon name="fa:stack-overflow" size="1em" />
