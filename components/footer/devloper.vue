@@ -1,11 +1,10 @@
 <template>
   <div>
     <p class="text-black dark:text-zinc-300 text-2xl py-1 font-semibold">
-      Al Asad Nur Hotuns
+      Hotuns
     </p>
     <p class="py-2 dark:text-zinc-300">
-      Hi! I am Hotuns, a Tech enthusiast, problem solver and software engineer.
-      Currently working at Appscode Inc.
+      你好，我是 Hotuns, 暂时还保留着一些对技术和世界的热情.
     </p>
     <div class="my-3 space-x-3 pb-3">
       <NuxtLink

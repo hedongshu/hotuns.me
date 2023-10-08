@@ -58,15 +58,12 @@ defineOgImage();
           </div>
         </div>
         <h3 class="text-base sm:text-3xl font-semibold pb-7 sm:pb-12">
-          Software Engineer, Problem Solver, Web Enthusiast.
+          人类、程序员、即将成为父亲.
         </h3>
 
         <p>
-          Hello, fellow human! I'm a software wizard who spends most of his day
-          crafting code spells at @AppsCode in the Bytebuilders team. When I'm
-          not crafting code, you can find me summoning solutions to problems on
-          online judges. Just don't ask me to cast any love spells, my magic
-          only works on machines!
+          你好，我是 Hotuns
+          ，旁边这个图片是我多年前刚买数位板的时候画的一幅图，现在已经很久没有画画了。这是我当时很喜欢的动漫《野良神》的主角，现在看来画得很差，但是我还是很喜欢它，所以就一直用着.
         </p>
       </div>
       <div class="hidden sm:block col-span-3">
