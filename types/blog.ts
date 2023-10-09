@@ -3,7 +3,6 @@ export interface BlogPost {
   date: string;
   description: string;
   image: string;
-  alt: string;
   tags: string[];
   published: boolean;
 }

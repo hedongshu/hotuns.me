@@ -1,6 +1,6 @@
 <template>
   <div class="gd-container font-spacegrotesk">
-    <header class="fixed w-full bg-[#dfddce] dark:bg-[#151818] z-10">
+    <header class="fixed w-full bg-[#edecde] dark:bg-[#151818] z-10">
       <MainHeader />
     </header>
     <main>

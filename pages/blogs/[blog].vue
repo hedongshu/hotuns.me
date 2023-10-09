@@ -38,7 +38,6 @@ useHead({
       <BlogHeader
         :title="data.title"
         :image="data.image"
-        :alt="data.alt"
         :date="data.date"
         :description="data.description"
         :tags="data.tags"

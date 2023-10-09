@@ -14,30 +14,17 @@ export default defineNuxtConfig({
     layoutTransition: { name: "layout", mode: "out-in" },
   },
 
-  sitemap: {
-    strictNuxtContentPaths: true,
-  },
-
-  site: {
-    url: "https://hotuns.me",
-    name: "Hotuns's Blog",
-    description: "Hotuns's awesome blog",
-    defaultLocale: "zh-CN",
-    identity: {
-      type: "Person",
-    },
-  },
-
   typescript: {
     strict: true,
     shim: false,
   },
 
   nitro: {
-    prerender: {
-      crawlLinks: true,
-      routes: ["/"],
-    },
+    // preset: "cloudflare_pages",
+    // prerender: {
+    //   crawlLinks: true,
+    //   routes: ["/"],
+    // },
   },
 
   colorMode: {
