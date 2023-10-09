@@ -60,7 +60,7 @@ useHead({
 </script>
 
 <template>
-  <div class="bg-[#edecde] dark:text-zinc-300 dark:bg-[#151818]">
+  <div class="app bg-[#edecde] dark:text-zinc-300 dark:bg-[#151818]">
     <NuxtLayout>
       <NuxtLoadingIndicator />
       <NuxtPage />
@@ -96,5 +96,11 @@ html.dark {
 ::selection {
   background: #153e5d;
   color: #f9f5de;
+}
+
+.app {
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACFJREFUeNpiZGBg4GegAsBlCD8TqSYNQg2Mo6FEBAAIMACdPABtrSW/IQAAAABJRU5ErkJggg==);
+  background-repeat: repeat;
+  background-attachment: fixed;
 }
 </style>
