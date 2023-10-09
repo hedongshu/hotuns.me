@@ -15,8 +15,6 @@ const formatedData = computed(() => {
         title: articles.title || "no-title available",
         description: articles.description || "no-descriptoin available",
         image: articles.image || "",
-        alt: articles.alt || "no alter data available",
-        ogImage: articles.ogImage || "",
         date: articles.date || "not-date-available",
         tags: articles.tags || [],
         published: articles.published || false,
@@ -72,8 +70,6 @@ useHead({
   ],
   titleTemplate: "Hotuns's Blog - %s",
 });
-
-defineOgImage();
 </script>
 
 <template>
@@ -98,8 +94,6 @@ defineOgImage();
             :date="post.date"
             :description="post.description"
             :image="post.image"
-            :alt="post.alt"
-            :og-image="post.ogImage"
             :tags="post.tags"
             :published="post.published"
           />

@@ -1,51 +1,46 @@
 <script lang="ts" setup>
-const route = useRoute()
+const route = useRoute();
 
 // take category from route params & make first char upper
 const category = computed(() => {
-  const name = route.params.category || ''
-  let strName = ''
+  const name = route.params.category || "";
+  let strName = "";
 
-  if (Array.isArray(name))
-    strName = name.at(0) || ''
-  else strName = name
-  return strName
-})
+  if (Array.isArray(name)) strName = name.at(0) || "";
+  else strName = name;
+  return strName;
+});
 
-const { data } = await useAsyncData('home', () =>
-  queryContent('/blogs')
+const { data } = await useAsyncData("home", () =>
+  queryContent("/blogs")
     .where({ tags: { $contains: category.value } })
-    .find(),
-)
+    .find()
+);
 
 const formatedData = computed(() => {
   return data.value?.map((articles) => {
     return {
       path: articles._path,
-      title: articles.title || 'no-title available',
-      description: articles.description || 'no-descriptoin available',
-      image: articles.image || '/nuxt-blog/no-image_cyyits.png',
-      alt: articles.alt || 'no alter data available',
-      ogImage: articles.ogImage || '/nuxt-blog/no-image_cyyits.png',
-      date: articles.date || 'not-date-available',
+      title: articles.title || "no-title available",
+      description: articles.description || "no-descriptoin available",
+      image: articles.image || "/nuxt-blog/no-image_cyyits.png",
+      date: articles.date || "not-date-available",
       tags: articles.tags || [],
       published: articles.published || false,
-    }
-  })
-})
+    };
+  });
+});
 
 useHead({
   title: category.value,
   meta: [
     {
-      name: 'description',
+      name: "description",
       content: `You will find all the ${category.value} related post here`,
     },
   ],
-  titleTemplate: 'Hotuns\'s Blog - %s',
-})
-
-defineOgImage()
+  titleTemplate: "Hotuns's Blog - %s",
+});
 </script>
 
 <template>
@@ -59,8 +54,6 @@ defineOgImage()
           :date="post.date"
           :description="post.description"
           :image="post.image"
-          :alt="post.alt"
-          :og-image="post.ogImage"
           :tags="post.tags"
           :published="post.published"
         />

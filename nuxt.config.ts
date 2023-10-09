@@ -20,10 +20,12 @@ export default defineNuxtConfig({
 
   site: {
     url: "https://hotuns.me",
+    name: "Hotuns's Blog",
+    description: "Hotuns's awesome blog",
+    defaultLocale: "zh-CN",
     identity: {
       type: "Person",
     },
-    twitter: "@qdnvubp",
   },
 
   typescript: {
@@ -33,7 +35,7 @@ export default defineNuxtConfig({
 
   nitro: {
     prerender: {
-      crawlLinks: false,
+      crawlLinks: true,
       routes: ["/"],
     },
   },
@@ -48,13 +50,10 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "nuxt-icon",
     "@vueuse/nuxt",
-    "nuxt-og-image",
     "@nuxt/content",
     "@nuxtjs/robots",
-    "@nuxtseo/module",
     "@nuxtjs/fontaine",
     "@nuxtjs/color-mode",
-    "nuxt-simple-sitemap",
     "@nuxtjs/tailwindcss",
   ],
 

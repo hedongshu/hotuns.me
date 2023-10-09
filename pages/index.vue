@@ -1,21 +1,15 @@
 <script lang="ts" setup>
 useHead({
-  title: 'Home',
+  title: "Home",
   meta: [
     {
-      name: 'description',
+      name: "description",
       content:
-        'Welcome To My Blog Site. Get Web Development, Javascript, Typescript, NodeJs, Vue, and Nuxt, Related Articles, Tips, Learning resources and more.',
+        "Welcome To My Blog Site. Get Web Development, Javascript, Typescript, NodeJs, Vue, and Nuxt, Related Articles, Tips, Learning resources and more.",
     },
   ],
-  titleTemplate: 'Hotuns\'s Blog - %s',
-})
-
-// a. Use the Composition API
-defineOgImage({
-  title: 'Hotuns\'s Blog',
-  description: 'Welcome To My Blog Site. Get Web Development, Javascript, Typescript, NodeJs, Vue, and Nuxt, Related Articles, Tips, Learning resources and more',
-})
+  titleTemplate: "Hotuns's Blog - %s",
+});
 </script>
 
 <template>

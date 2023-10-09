@@ -6,7 +6,6 @@ interface Props {
   description: string;
   image: string;
   alt: string;
-  ogImage: string;
   tags: Array<string>;
   published: boolean;
 }
@@ -18,7 +17,6 @@ withDefaults(defineProps<Props>(), {
   description: "no-description",
   image: "",
   alt: "no-alt",
-  ogImage: "",
   tags: () => [],
   published: false,
 });

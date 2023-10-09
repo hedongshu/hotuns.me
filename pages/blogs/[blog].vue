@@ -14,8 +14,6 @@ const data = computed<BlogPost>(() => {
     title: articles.value?.title || "no-title available",
     description: articles.value?.description || "no-descriptoin available",
     image: articles.value?.image || "",
-    alt: articles.value?.alt || "no alter data available",
-    ogImage: articles.value?.ogImage || "",
     date: articles.value?.date || "not-date-available",
     tags: articles.value?.tags || [],
     published: articles.value?.published || false,
@@ -30,56 +28,7 @@ useHead({
       name: "description",
       content: data.value.description,
     },
-    // Test on: https://developers.facebook.com/tools/debug/ or https://socialsharepreview.com/
-    { property: "og:site_name", content: "Hotuns's Blog" },
-    { hid: "og:type", property: "og:type", content: "website" },
-    {
-      property: "og:url",
-      content: `https://blog-nurHotuns.vercel.app/${path}`,
-    },
-    {
-      property: "og:title",
-      content: data.value.title,
-    },
-    {
-      property: "og:description",
-      content: data.value.description,
-    },
-    {
-      property: "og:image",
-      content: data.value.ogImage || data.value.image,
-    },
-    // Test on: https://cards-dev.twitter.com/validator or https://socialsharepreview.com/
-    { name: "twitter:site", content: "@qdnvubp" },
-    { name: "twitter:card", content: "summary_large_image" },
-    {
-      name: "twitter:url",
-      content: `https://blog-nurHotuns.vercel.app/${path}`,
-    },
-    {
-      name: "twitter:title",
-      content: data.value.title,
-    },
-    {
-      name: "twitter:description",
-      content: data.value.description,
-    },
-    {
-      name: "twitter:image",
-      content: data.value.ogImage || data.value.image,
-    },
   ],
-  link: [
-    {
-      rel: "canonical",
-      href: `https://blog-nurHotuns.vercel.app/${path}`,
-    },
-  ],
-});
-
-defineOgImage({
-  title: data.value.title,
-  description: data.value.description,
 });
 </script>
 

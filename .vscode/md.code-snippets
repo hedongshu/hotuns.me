@@ -26,7 +26,6 @@
       "description: ${1:title}",
       "image: ",
       "alt: ${1:title}",
-      "ogImage: ",
       "tags: []",
       "published: true",
       "---",

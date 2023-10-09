@@ -29,8 +29,6 @@ useHead({
   ],
   titleTemplate: "Hotuns's Blog - %s",
 });
-
-defineOgImage();
 </script>
 
 <template>

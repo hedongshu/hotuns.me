@@ -1,6 +1,4 @@
-<script setup lang="ts">
-defineOgImage();
-</script>
+<script setup lang="ts"></script>
 
 <template>
   <div class="py-5">
