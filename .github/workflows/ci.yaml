@@ -52,13 +52,12 @@ jobs:
 
       - name: Get artifact download URL
         id: get-artifact-url
-            run: |
-              ARTIFACT_URL=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-                -H "Accept: application/vnd.github.v3+json" \
-                "${{ github.api_url }}/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" \
-                | python -c "import sys, json; print(next(item['archive_download_url'] for item in json.load(sys.stdin)['artifacts'] if item['name'] == 'build'))")
-              echo "ARTIFACT_URL=$ARTIFACT_URL" >> $GITHUB_ENV
-
+        run: |
+          ARTIFACT_URL=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+            -H "Accept: application/vnd.github.v3+json" \
+            "${{ github.api_url }}/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts" \
+            | python -c "import sys, json; print(next(item['archive_download_url'] for item in json.load(sys.stdin)['artifacts'] if item['name'] == 'build'))")
+          echo "ARTIFACT_URL=$ARTIFACT_URL" >> $GITHUB_ENV
 
       - name: Deploy to Server
         run: ssh -o "StrictHostKeyChecking=no" ubuntu@170.106.40.151 'bash -s' < deploy_script.sh ${{ steps.get-artifact-url.outputs.artifact_url }}
