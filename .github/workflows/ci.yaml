@@ -54,10 +54,10 @@ jobs:
         id: get-artifact-url
         run: |
           RESPONSE=$(curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
-          -H "Accept: application/vnd.github.v3+json" \
-          "${{ github.api_url }}/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts")
-          echo "$RESPONSE"
-          ARTIFACT_URL=$(echo $RESPONSE | python -c "import sys, json; print(next(item['archive_download_url'] for item in json.load(sys.stdin)['artifacts'] if item['name'] == 'build'))")
+            -H "Accept: application/vnd.github.v3+json" \
+            "${{ github.api_url }}/repos/${{ github.repository }}/actions/runs/${{ github.run_id }}/artifacts")
+          echo "API Response: $RESPONSE"
+          ARTIFACT_URL=$(echo $RESPONSE | python -c "import sys, json; print(next((item['archive_download_url'] for item in json.load(sys.stdin)['artifacts'] if item['name'] == 'build'), 'URL not found'))")
           echo "ARTIFACT_URL=$ARTIFACT_URL" >> $GITHUB_ENV
 
       - name: Deploy to Server
