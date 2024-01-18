@@ -27,15 +27,14 @@ jobs:
       - name: Build
         run: nr build
 
-      - name: Archive production build
-        run: tar -czf build.tar.gz .output ecosystem.config.js
-
       - name: Upload build artifact
         uses: actions/upload-artifact@v4
         id: upload-artifact
         with:
           name: build
-          path: build.tar.gz
+          path: |
+            .output
+            ecosystem.config.js
 
   # TODO: Add more steps here, like "nr test" as you add the tooling for it
 
