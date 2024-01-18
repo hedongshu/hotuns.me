@@ -47,6 +47,15 @@ jobs:
       - name: Build
         run: nr build
 
+      - name: Archive production build
+        run: tar -czf build.tar.gz .output ecosystem.config.js
+
+      - name: Upload build artifact
+        uses: actions/upload-artifact@v2
+        with:
+          name: build
+          path: build.tar.gz
+
   # TODO: Add more steps here, like "nr test" as you add the tooling for it
   deploy:
     needs: build # 仅在构建成功后运行
@@ -62,4 +71,4 @@ jobs:
 
       - name: Deploy to Server
         run: |
-          ssh -o "StrictHostKeyChecking=no" ubuntu@170.106.40.151/ 'bash -s' < deploy_script.sh
+          ssh -o "StrictHostKeyChecking=no" ubuntu@170.106.40.151 'bash -s' < deploy_script.sh
