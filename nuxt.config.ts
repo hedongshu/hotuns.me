@@ -9,9 +9,17 @@ export default defineNuxtConfig({
     '@sidebase/nuxt-auth',
     '@bg-dev/nuxt-naiveui'
   ],
+  auth: {
+      provider: {
+          type: 'refresh'
+      }
+  },
   app: {
     rootId: "nuxt-root",
     head: {
+      link: [
+        {rel: "icon", type: "image/x.icon", href: 'favicon.ico'}
+      ],
       meta: [
         { name: "description", content: siteConfig.description },
         { name: "author", content: siteConfig.author },
