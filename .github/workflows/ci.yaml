@@ -1,15 +1,13 @@
-
 name: CI
 
 on:
   push:
-    branches: [ main ]
+    branches: [main]
   pull_request:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   lint:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -30,7 +28,6 @@ jobs:
         run: nr lint
 
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -51,3 +48,18 @@ jobs:
         run: nr build
 
   # TODO: Add more steps here, like "nr test" as you add the tooling for it
+  deploy:
+    needs: build # 仅在构建成功后运行
+    runs-on: ubuntu-latest
+    if: github.ref == 'refs/heads/main' # 仅在主分支上运行
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Setup SSH
+        uses: webfactory/ssh-agent@v0.5.3
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      - name: Deploy to Server
+        run: |
+          ssh -o "StrictHostKeyChecking=no" ubuntu@170.106.40.151/ 'bash -s' < deploy_script.sh
