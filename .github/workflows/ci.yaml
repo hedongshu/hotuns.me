@@ -58,4 +58,5 @@ jobs:
 
       - name: Deploy to Server
         run: |
-        ssh -o "StrictHostKeyChecking=no" ubuntu@170.106.40.151 'bash -s' < deploy_script.sh ${{ needs.build.outputs.output1 }}
+          echo ${{ needs.build.outputs.output1 }}
+          ssh -o "StrictHostKeyChecking=no" ubuntu@170.106.40.151 'bash -s' < deploy_script.sh ${{ needs.build.outputs.output1 }}
