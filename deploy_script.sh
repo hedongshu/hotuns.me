@@ -3,8 +3,10 @@ ARTIFACT_URL=$1  # Artifact URL 作为参数传递
 
 cd /home/ubuntu/hotuns.me
 # 下载构建文件
-wget -O build.zip "$ARTIFACT_URL" --header='Authorization: token ${{ secrets.GITHUB_TOKEN }}'
+wget -O build.zip "$ARTIFACT_URL" || { echo "下载失败"; exit 1; }
+
 # 解压构建文件
-unzip build.zip
+unzip build.zip || { echo "解压失败"; exit 1; }
+
 # 重启您的服务，例如使用 pm2
-pm2 restart all
+/home/ubuntu/.nvm/versions/node/v17.5.0/bin/pm2 restart all || { echo "PM2 重启失败"; exit 1; }
