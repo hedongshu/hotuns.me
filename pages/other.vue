@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { getIncludedYearPosts } from '@/utils'
 
-const posts = await getIncludedYearPosts('blog')
+const { data: posts, pending, error, refresh } = await useAsyncData(
+  () => getIncludedYearPosts('other')
+)
 </script>
 
 <template>

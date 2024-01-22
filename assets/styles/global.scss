@@ -59,6 +59,22 @@ html {
   color: var(--primary);
   background-color: var(--c-bg);
   scroll-behavior: smooth;
+
+  body {
+    background-repeat: repeat;
+    background-attachment: fixed;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.04);
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACFJREFUeNpiZGBg4GegAsBlCD8TqSYNQg2Mo6FEBAAIMACdPABtrSW/IQAAAABJRU5ErkJggg==");
+  }
+
+  &.dark {
+    body {
+      background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAMCAYAAABWdVznAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAACJJREFUeNpi/P//Py8DpQCXISBxJlING4QaGEdDiQgAEGAAg8sST3LGZYoAAAAASUVORK5CYII=");
+    }
+    
+  }
 }
 
 pre,
