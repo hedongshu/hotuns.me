@@ -36,7 +36,7 @@ jobs:
             ecosystem.config.js
 
     outputs:
-      output1: ${{ steps.upload-artifact.outputs.artifact-url }}
+      output1: ${{ steps.upload-artifact.outputs.artifact-id }}
 
   # TODO: Add more steps here, like "nr test" as you add the tooling for it
 
