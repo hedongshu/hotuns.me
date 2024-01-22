@@ -1,7 +1,7 @@
 export const siteConfig = {
-  author: 'Hotuns',
+  author: 'hotuns',
   title: 'Hotuns - Site',
-  description: 'Hotuns site.',
+  description: 'Hotuns 的个人网站；记录文章；一些工具；',
   lang: 'zh-CN',
 }
 
@@ -22,27 +22,27 @@ export const subNavLinks = [
 
 export const navLinks = [
   {
-    title: 'Blog',
+    title: '应用',
+    path: '/apps',
+    icon: 'i-icon-park-outline-blocks-and-arrows',
+  },
+  {
+    title: '文章',
     path: '/blog',
     icon: 'i-icon-park-outline-align-text-right-one',
   },
   {
-    title: 'Projects',
-    path: '/projects',
-    icon: 'i-icon-park-outline-blocks-and-arrows',
-  },
-  {
-    title: 'Tags',
+    title: '标签',
     path: '/tags',
     icon: 'i-icon-park-outline-tag-one',
   },
   {
-    title: 'Search',
+    title: '搜索',
     path: '/search',
     icon: 'i-icon-park-outline-search',
   },
   {
-    title: 'About',
+    title: '关于',
     path: '/',
     icon: 'i-icon-park-outline-grinning-face-with-open-mouth',
   },
@@ -72,9 +72,19 @@ export const socialLinks = [
   },
 ]
 
-export const projectList = [
+export const appsList = [
   {
-    name: 'Projects',
+    name: '工具',
+    content: [
+      {
+        name: 'inpaint',
+        desc: 'AI修复图片，去掉你图片中你不想要部分；使图片更高清；',
+        path: 'https://app.hotuns.me/inpaint/',
+      },
+    ],
+  },
+  {
+    name: '代码',
     content: [
       {
         name: 'miniapp-coupons',
@@ -100,12 +110,7 @@ export const projectList = [
         name: '我的ps作品',
         desc: '一些很多年以前的ps练习',
         path: 'https://github.com/hedongshu/ps-showroom'
-      }
-    ],
-  },
-  {
-    name: 'Starter',
-    content: [
+      },
       {
         name: 'vitesse-antd-admin',
         desc: '基于vitesse，使用antd-vue的开发模版',
