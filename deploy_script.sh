@@ -2,6 +2,8 @@
 ARTIFACT_ID=$1  # ARTIFACT_ID 作为参数传递
 
 cd /home/ubuntu/hotuns.me
+rm -rf artifact.zip ecosystem.config.js .output
+
 # 加载 .env 文件
 source .env
 
