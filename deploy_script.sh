@@ -17,7 +17,13 @@ curl -L \
 
 
 # 解压构建文件
-unzip artifact.zip || { echo "解压失败"; exit 1; }
+unzip -q artifact.zip || { echo "解压失败"; exit 1; }
+
+
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
+
+nvm use v18
 
 # 重启您的服务，例如使用 pm2
-/home/ubuntu/.nvm/versions/node/v17.5.0/bin/pm2 restart all || { echo "PM2 重启失败"; exit 1; }
+pm2 restart all || { echo "PM2 重启失败"; exit 1; }
