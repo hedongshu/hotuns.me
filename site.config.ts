@@ -28,7 +28,7 @@ export const navLinks = [
   },
   {
     title: '文章',
-    path: '/blog',
+    path: '/code',
     icon: 'i-icon-park-outline-align-text-right-one',
   },
   {
@@ -40,6 +40,11 @@ export const navLinks = [
     title: '搜索',
     path: '/search',
     icon: 'i-icon-park-outline-search',
+  },
+  {
+    title: '收藏',
+    path: '/mark',
+    icon: 'i-icon-park-outline-bookmark-one',
   },
   {
     title: '关于',

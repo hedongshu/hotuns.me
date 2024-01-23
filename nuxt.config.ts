@@ -54,20 +54,18 @@ export default defineNuxtConfig({
     sources: {
       content: {
         driver: 'fs',
-        useCache: false,
-
         prefix: '', // All contents inside this source will be prefixed with `/docs`
         base: resolve(__dirname, 'content')
       },
-      // github: {
-      //   prefix: '/blog', // Prefix for routes used to query contents
-      //   driver: 'github', // Driver used to fetch contents (view unstorage documentation)
-      //   repo: "hedongshu/static-file",
-      //   branch: "main",
-      //   ignores: ["README.md", "/_images/"],
-      //   dir: "Other", // Directory where contents are located. It could be a subdirectory of the repository.
-      //   // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
-      // },
+      github: {
+        prefix: '', // Prefix for routes used to query contents
+        driver: 'github', // Driver used to fetch contents (view unstorage documentation)
+        repo: "hedongshu/static-file",
+        branch: "main",
+        ignores: ["README.md"],
+        dir: "", // Directory where contents are located. It could be a subdirectory of the repository.
+        // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
+      },
     }
   },
   css: [
