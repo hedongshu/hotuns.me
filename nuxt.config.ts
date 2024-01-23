@@ -8,18 +8,19 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxt/content',
     '@sidebase/nuxt-auth',
+    "@pinia/nuxt",
     '@bg-dev/nuxt-naiveui'
   ],
   auth: {
-      provider: {
-          type: 'refresh'
-      }
+    provider: {
+      type: 'refresh'
+    }
   },
   app: {
     rootId: "nuxt-root",
     head: {
       link: [
-        {rel: "icon", type: "image/x.icon", href: 'favicon.ico'}
+        { rel: "icon", type: "image/x.icon", href: 'favicon.ico' }
       ],
       meta: [
         { name: "description", content: siteConfig.description },
@@ -57,15 +58,15 @@ export default defineNuxtConfig({
         prefix: '', // All contents inside this source will be prefixed with `/docs`
         base: resolve(__dirname, 'content')
       },
-      github: {
-        prefix: '', // Prefix for routes used to query contents
-        driver: 'github', // Driver used to fetch contents (view unstorage documentation)
-        repo: "hedongshu/static-file",
-        branch: "main",
-        ignores: ["README.md"],
-        dir: "", // Directory where contents are located. It could be a subdirectory of the repository.
-        // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
-      },
+      // github: {
+      //   prefix: '', // Prefix for routes used to query contents
+      //   driver: 'github', // Driver used to fetch contents (view unstorage documentation)
+      //   repo: "hedongshu/static-file",
+      //   branch: "main",
+      //   ignores: ["README.md"],
+      //   dir: "", // Directory where contents are located. It could be a subdirectory of the repository.
+      //   // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
+      // },
     }
   },
   css: [
