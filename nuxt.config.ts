@@ -1,6 +1,7 @@
 // https://nuxt.com/docs/api/configuration/nuxt-config
-import { resolve } from "path";
-import { siteConfig } from "./site.config";
+import { resolve } from 'path'
+import { fileURLToPath } from 'url'
+import { siteConfig } from './site.config'
 
 export default defineNuxtConfig({
   modules: [
@@ -8,56 +9,61 @@ export default defineNuxtConfig({
     '@vueuse/nuxt',
     '@nuxt/content',
     '@sidebase/nuxt-auth',
-    "@pinia/nuxt",
+    '@pinia/nuxt',
     '@bg-dev/nuxt-naiveui'
   ],
+  alias: {
+    '@chatapp': fileURLToPath(
+      new URL('./apps/chat', import.meta.url)
+    )
+  },
   auth: {
     provider: {
       type: 'refresh'
     }
   },
   app: {
-    rootId: "nuxt-root",
+    rootId: 'nuxt-root',
     head: {
       link: [
-        { rel: "icon", type: "image/x.icon", href: 'favicon.ico' }
+        { rel: 'icon', type: 'image/x.icon', href: 'favicon.ico' }
       ],
       meta: [
-        { name: "description", content: siteConfig.description },
-        { name: "author", content: siteConfig.author },
-        { name: "viewport", content: "width=device-width, initial-scale=1.0" },
-        { name: "revisit-after", content: "7 days" },
-        { name: "msapplication-TileColor", content: "#ffffff" },
-        { charset: "UTF-8" },
-        { "http-equiv": "X-UA-Compatible", content: "IE=edge" },
+        { name: 'description', content: siteConfig.description },
+        { name: 'author', content: siteConfig.author },
+        { name: 'viewport', content: 'width=device-width, initial-scale=1.0' },
+        { name: 'revisit-after', content: '7 days' },
+        { name: 'msapplication-TileColor', content: '#ffffff' },
+        { charset: 'UTF-8' },
+        { 'http-equiv': 'X-UA-Compatible', content: 'IE=edge' }
       ],
-      noscript: [{ children: "JavaScript is required" }],
+      noscript: [{ children: 'JavaScript is required' }],
       htmlAttrs: {
-        lang: siteConfig.lang,
+        lang: siteConfig.lang
       },
       bodyAttrs: {
-        class: "font-sans",
-      },
-    },
+        class: 'font-sans'
+      }
+    }
   },
   content: {
     highlight: {
       theme: {
         // Default theme (same as single string)
-        default: "vitesse-light",
+        default: 'vitesse-light',
         // Theme used if `html.dark`
-        dark: "vitesse-dark",
+        dark: 'vitesse-dark',
         // Theme used if `html.sepia`
-        sepia: "monokai",
+        sepia: 'monokai'
       },
-      preload: ['diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml'],
+      preload: ['diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml']
     },
     sources: {
       content: {
         driver: 'fs',
         prefix: '', // All contents inside this source will be prefixed with `/docs`
         base: resolve(__dirname, 'content')
-      },
+      }
       // github: {
       //   prefix: '', // Prefix for routes used to query contents
       //   driver: 'github', // Driver used to fetch contents (view unstorage documentation)
@@ -70,11 +76,11 @@ export default defineNuxtConfig({
     }
   },
   css: [
-    "@unocss/reset/tailwind.css",
-    "@/assets/styles/global.scss",
-    "@/assets/styles/theme.css",
-    "@/assets/styles/transition.css",
-    "@/assets/styles/markdown.scss",
+    '@unocss/reset/tailwind.css',
+    '@/assets/styles/global.scss',
+    '@/assets/styles/theme.css',
+    '@/assets/styles/transition.css',
+    '@/assets/styles/markdown.scss'
   ],
   build: {
     transpile: [
