@@ -2,55 +2,55 @@ export const siteConfig = {
   author: 'hotuns',
   title: 'Hotuns - Site',
   description: 'Hotuns 的个人网站；记录文章；一些工具；',
-  lang: 'zh-CN',
+  lang: 'zh-CN'
 }
 
 export const subNavLinks = [
   {
     title: 'Code',
-    path: '/code',
+    path: '/code'
   },
   {
     title: 'Life',
-    path: '/life',
+    path: '/life'
   },
   {
     title: 'Other',
-    path: '/other',
-  },
+    path: '/other'
+  }
 ]
 
 export const navLinks = [
   {
     title: '应用',
     path: '/apps',
-    icon: 'i-icon-park-outline-blocks-and-arrows',
+    icon: 'i-icon-park-outline-blocks-and-arrows'
   },
   {
     title: '文章',
     path: '/code',
-    icon: 'i-icon-park-outline-align-text-right-one',
+    icon: 'i-icon-park-outline-align-text-right-one'
   },
   {
     title: '标签',
     path: '/tags',
-    icon: 'i-icon-park-outline-tag-one',
+    icon: 'i-icon-park-outline-tag-one'
   },
   {
     title: '搜索',
     path: '/search',
-    icon: 'i-icon-park-outline-search',
+    icon: 'i-icon-park-outline-search'
   },
   {
     title: '收藏',
     path: '/mark',
-    icon: 'i-icon-park-outline-bookmark-one',
+    icon: 'i-icon-park-outline-bookmark-one'
   },
   {
     title: '关于',
     path: '/',
-    icon: 'i-icon-park-outline-grinning-face-with-open-mouth',
-  },
+    icon: 'i-icon-park-outline-grinning-face-with-open-mouth'
+  }
 
 ]
 
@@ -63,18 +63,18 @@ export const socialLinks = [
   {
     title: 'Bilibili',
     path: 'https://space.bilibili.com/39941520',
-    icon: 'i-simple-icons-bilibili',
+    icon: 'i-simple-icons-bilibili'
   },
   {
     title: '知乎',
     path: 'https://www.zhihu.com/people/bu-shi-dong-xi-9',
-    icon: 'i-simple-icons-zhihu',
+    icon: 'i-simple-icons-zhihu'
   },
   {
     title: 'Github',
     path: 'https://github.com/hedongshu',
-    icon: 'i-icon-park-outline-github',
-  },
+    icon: 'i-icon-park-outline-github'
+  }
 ]
 
 export const appsList = [
@@ -84,9 +84,9 @@ export const appsList = [
       {
         name: 'inpaint',
         desc: 'AI修复图片，去掉你图片中你不想要部分；使图片更高清；',
-        path: 'https://app.hotuns.me/inpaint/',
-      },
-    ],
+        path: 'https://app.hotuns.me/inpaint/'
+      }
+    ]
   },
   {
     name: '代码',
@@ -94,17 +94,17 @@ export const appsList = [
       {
         name: 'miniapp-coupons',
         desc: '一个领外卖优惠券的小程序，用来赚取一点点佣金',
-        path: 'https://github.com/hedongshu/miniapp-coupons',
+        path: 'https://github.com/hedongshu/miniapp-coupons'
       },
       {
         name: 'go-markdown-book',
         desc: '将 github仓库，或者本地文件夹 内的Markdown文件发布成可以web访问的book',
-        path: 'https://github.com/hedongshu/go-markdown-book',
+        path: 'https://github.com/hedongshu/go-markdown-book'
       },
       {
         name: 'egret-eui-demo',
         desc: 'egret游戏的一个案例',
-        path: 'https://github.com/hedongshu/egret-eui-demo',
+        path: 'https://github.com/hedongshu/egret-eui-demo'
       },
       {
         name: 'bulk-delete-chatGPT',
@@ -119,8 +119,8 @@ export const appsList = [
       {
         name: 'vitesse-antd-admin',
         desc: '基于vitesse，使用antd-vue的开发模版',
-        path: 'https://github.com/hedongshu/vitesse-antd-admin',
-      },
-    ],
-  },
+        path: 'https://github.com/hedongshu/vitesse-antd-admin'
+      }
+    ]
+  }
 ]
