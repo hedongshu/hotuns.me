@@ -5,7 +5,6 @@ const { data: posts, pending, error, refresh } = await useAsyncData(
   () => getIncludedYearPosts('code')
 )
 
-
 </script>
 
 <template>

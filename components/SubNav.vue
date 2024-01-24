@@ -11,7 +11,8 @@ const router = useRouter()
 <template>
   <ul class="flex gap-1em mb-2em">
     <li
-      v-for="(item) in subNavLinks" :key="item.path"
+      v-for="(item) in subNavLinks"
+      :key="item.path"
       class="cursor-pointer "
       :class="path === item.path ? 'text-deep font-bold' : 'deep-hover'"
       @click="router.push(item.path)"

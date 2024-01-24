@@ -16,15 +16,15 @@ const getQueryResult = useDebounceFn(async () => {
         { title: { $regex: new RegExp(`.*${searchValue.value}.*`, 'i') } },
         {
           description: {
-            $regex: new RegExp(`.*${searchValue.value}.*`, 'i'),
-          },
+            $regex: new RegExp(`.*${searchValue.value}.*`, 'i')
+          }
         },
         {
           tags: {
-            $contains: searchValue.value,
-          },
-        },
-      ],
+            $contains: searchValue.value
+          }
+        }
+      ]
     })
     .find()
 }, 600)
@@ -39,9 +39,12 @@ watch(searchValue, getQueryResult)
   <div class="slide-enter-content">
     <input v-model="searchValue" placeholder="Search post title / description / tag" class="search-input mb-2em">
     <ul>
-      <cell
-        v-for="(article, index) in queryResult" :key="article._path" :article="article"
-        slide-enter :style="{ '--stagger': index + 1 }"
+      <PostCell
+        v-for="(article, index) in queryResult"
+        :key="article._path"
+        :article="article"
+        slide-enter
+        :style="{ '--stagger': index + 1 }"
       />
     </ul>
   </div>

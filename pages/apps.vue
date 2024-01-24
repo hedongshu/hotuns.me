@@ -8,7 +8,7 @@ appsList.forEach((series) => {
   })
 })
 useSeoMeta({
-  description: description
+  description
 })
 </script>
 
@@ -22,8 +22,14 @@ useSeoMeta({
         {{ series.name }}
       </div>
       <div class="grid grid-cols-1 md:grid-cols-2 gap-1em">
-        <a v-for="(app) in series.content" :key="app.path" :title="app.name" :href="app.path" target="_blank"
-          class="flex items-center py-0.5em px-1em rounded-sm hover:bg-gray-400:10">
+        <a
+          v-for="(app) in series.content"
+          :key="app.path"
+          :title="app.name"
+          :href="app.path"
+          target="_blank"
+          class="flex items-center py-0.5em px-1em rounded-sm hover:bg-gray-400:10"
+        >
           <div class="hover w-full">
             <div class="text-lg">{{ app.name }} <span class="text-sm op-50 i-icon-park-outline-efferent-three" />
             </div>
