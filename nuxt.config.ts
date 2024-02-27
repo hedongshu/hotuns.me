@@ -3,6 +3,9 @@ import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 import { siteConfig } from './site.config'
 
+const isDevelopment = process.env.NODE_ENV === 'development'
+console.log('isDevelopment', isDevelopment)
+
 export default defineNuxtConfig({
   modules: [
     '@unocss/nuxt',
@@ -17,6 +20,7 @@ export default defineNuxtConfig({
       new URL('./apps/chat', import.meta.url)
     )
   },
+
   auth: {
     provider: {
       type: 'refresh'
@@ -58,21 +62,31 @@ export default defineNuxtConfig({
       },
       preload: ['diff', 'json', 'js', 'ts', 'css', 'shell', 'html', 'md', 'yaml']
     },
+    // @ts-ignore
     sources: {
-      content: {
+      // content: {
+      //   driver: 'fs',
+      //   prefix: '', // All contents inside this source will be prefixed with `/docs`
+      //   base: resolve(__dirname, 'content')
+      // },
+      content: isDevelopment ? {
+        driver: 'fs',
+        prefix: '', // All contents inside this source will be prefixed with `/docs`
+        base: resolve(__dirname, 'github-static-file')
+      } : {
         driver: 'fs',
         prefix: '', // All contents inside this source will be prefixed with `/docs`
         base: resolve(__dirname, 'content')
+      },
+      github: isDevelopment ? undefined : {
+        prefix: '', // Prefix for routes used to query contents
+        driver: 'github', // Driver used to fetch contents (view unstorage documentation)
+        repo: 'hedongshu/static-file',
+        branch: 'main',
+        ignores: ['README.md'],
+        dir: '' // Directory where contents are located. It could be a subdirectory of the repository.
+        // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
       }
-      // github: {
-      //   prefix: '', // Prefix for routes used to query contents
-      //   driver: 'github', // Driver used to fetch contents (view unstorage documentation)
-      //   repo: "hedongshu/static-file",
-      //   branch: "main",
-      //   ignores: ["README.md"],
-      //   dir: "", // Directory where contents are located. It could be a subdirectory of the repository.
-      //   // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
-      // },
     }
   },
   css: [
