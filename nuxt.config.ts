@@ -16,12 +16,6 @@ export default defineNuxtConfig({
     '@pinia/nuxt',
     '@bg-dev/nuxt-naiveui'
   ],
-  alias: {
-    '@chatapp': fileURLToPath(
-      new URL('./apps/chat', import.meta.url)
-    )
-  },
-
   auth: {
     provider: {
       type: 'refresh'
