@@ -3,8 +3,8 @@ import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 import { siteConfig } from './site.config'
 
-// const isDevelopment = process.env.NODE_ENV === 'development'
-const isDevelopment = true
+const isDevelopment = process.env.NODE_ENV === 'development'
+// const isDevelopment = true
 console.log('isDevelopment', isDevelopment)
 
 export default defineNuxtConfig({
