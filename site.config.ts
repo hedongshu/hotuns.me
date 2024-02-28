@@ -15,8 +15,8 @@ export const subNavLinks = [
     path: '/life'
   },
   {
-    title: 'Notes',
-    path: '/notes'
+    title: 'Note',
+    path: '/note'
   },
   {
     title: 'Tags',
@@ -41,10 +41,15 @@ export const navLinks = [
     icon: 'i-icon-park-outline-grinning-face-with-open-mouth'
   },
   {
-    title: '搜索',
-    path: '/search',
-    icon: 'i-icon-park-outline-search'
+    title: 'Tags',
+    path: '/tags',
+    icon: 'i-icon-park-outline-tag'
   },
+  // {
+  //   title: '搜索',
+  //   path: '/search',
+  //   icon: 'i-icon-park-outline-search'
+  // },
   {
     title: '关于',
     path: '/',

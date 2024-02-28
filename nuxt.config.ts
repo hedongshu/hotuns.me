@@ -3,7 +3,8 @@ import { resolve } from 'path'
 import { fileURLToPath } from 'url'
 import { siteConfig } from './site.config'
 
-const isDevelopment = process.env.NODE_ENV === 'development'
+// const isDevelopment = process.env.NODE_ENV === 'development'
+const isDevelopment = true
 console.log('isDevelopment', isDevelopment)
 
 export default defineNuxtConfig({
@@ -64,20 +65,11 @@ export default defineNuxtConfig({
     },
     // @ts-ignore
     sources: {
-      // content: {
-      //   driver: 'fs',
-      //   prefix: '', // All contents inside this source will be prefixed with `/docs`
-      //   base: resolve(__dirname, 'content')
-      // },
       content: isDevelopment ? {
         driver: 'fs',
         prefix: '', // All contents inside this source will be prefixed with `/docs`
         base: resolve(__dirname, 'github-static-file')
-      } : {
-        driver: 'fs',
-        prefix: '', // All contents inside this source will be prefixed with `/docs`
-        base: resolve(__dirname, 'content')
-      },
+      } : undefined,
       github: isDevelopment ? undefined : {
         prefix: '', // Prefix for routes used to query contents
         driver: 'github', // Driver used to fetch contents (view unstorage documentation)
