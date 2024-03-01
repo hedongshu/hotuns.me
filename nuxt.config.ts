@@ -4,7 +4,6 @@ import { fileURLToPath } from 'url'
 import { siteConfig } from './site.config'
 
 const isDevelopment = process.env.NODE_ENV === 'development'
-// const isDevelopment = true
 console.log('isDevelopment', isDevelopment)
 
 export default defineNuxtConfig({
@@ -59,20 +58,25 @@ export default defineNuxtConfig({
     },
     // @ts-ignore
     sources: {
-      content: isDevelopment ? {
+      content: {
         driver: 'fs',
         prefix: '', // All contents inside this source will be prefixed with `/docs`
-        base: resolve(__dirname, 'github-static-file')
-      } : undefined,
-      github: isDevelopment ? undefined : {
-        prefix: '', // Prefix for routes used to query contents
-        driver: 'github', // Driver used to fetch contents (view unstorage documentation)
-        repo: 'hedongshu/static-file',
-        branch: 'main',
-        ignores: ['README.md'],
-        dir: '' // Directory where contents are located. It could be a subdirectory of the repository.
-        // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
+        base: resolve(__dirname, 'content')
       }
+      // content: isDevelopment ? {
+      //   driver: 'fs',
+      //   prefix: '', // All contents inside this source will be prefixed with `/docs`
+      //   base: resolve(__dirname, 'github-static-file')
+      // } : undefined,
+      // github: isDevelopment ? undefined : {
+      //   prefix: '', // Prefix for routes used to query contents
+      //   driver: 'github', // Driver used to fetch contents (view unstorage documentation)
+      //   repo: 'hedongshu/static-file',
+      //   branch: 'main',
+      //   ignores: ['README.md'],
+      //   dir: '' // Directory where contents are located. It could be a subdirectory of the repository.
+      //   // Imagine you have a blog inside your content folder. You can set this option to `content/blog` with the prefix option to `/blog` to avoid conflicts with local files.
+      // }
     }
   },
   css: [

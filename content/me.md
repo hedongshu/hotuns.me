@@ -7,7 +7,7 @@
 
 -   📨 hedongshu@foxmail.com
 
-我做了不少的外包项目，如果你有什么项目想找人做，可以联系我，我可以帮你做，或者帮你找人做。
+我做了不少的外包项目，如果你有什么想法，就差一个程序员了，那么可以联系我。
 
 ### 我的技能？
 
@@ -21,7 +21,6 @@
   <img src="https://img.shields.io/badge/react-61DAFB?style=for-the-badge&logo=react&logoColor=white"></img>
   <img src="https://img.shields.io/badge/weapp-07C160?style=for-the-badge&logo=wechat&logoColor=white"></img>
   <img src="https://img.shields.io/badge/node-339933?style=for-the-badge&logo=nodedotjs&logoColor=white"></img>
-  <img src="https://img.shields.io/badge/rust-000000?style=for-the-badge&logo=rust&logoColor=white"></img>
   <img src="https://img.shields.io/badge/python-3776AB?style=for-the-badge&logo=python&logoColor=white"></img>
   <img src="https://img.shields.io/badge/go-00ADD8?style=for-the-badge&logo=go&logoColor=white"></img>
 </div>
@@ -35,7 +34,6 @@
   <img src="https://img.shields.io/badge/unocss-333333?style=for-the-badge&logo=unocss&logoColor=white"></img>
 </div>
 <div class="skill-wrapper">
-  <img src="https://img.shields.io/badge/MySQL-4479A1?style=for-the-badge&logo=mysql&logoColor=white"></img>
   <img src="https://img.shields.io/badge/Linux-FCC624?style=for-the-badge&logo=linux&logoColor=black"></img>
   <img src="https://img.shields.io/badge/docker-2496ED?style=for-the-badge&logo=docker&logoColor=white"></img>
   <img src="https://img.shields.io/badge/git-F05032?style=for-the-badge&logo=git&logoColor=white"></img>
@@ -47,3 +45,5 @@
 ### 博客？
 
 Github: https://github.com/hedongshu
+
+blog: https://hotuns.me
