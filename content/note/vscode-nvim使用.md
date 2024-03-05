@@ -1,8 +1,8 @@
 ---
 date: 2022-01-11 09:46:36
 tags:
-  - vim
-  - vscode
+    - vim
+    - vscode
 title: vscode-nvim 使用
 ---
 
@@ -74,22 +74,22 @@ $ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 以下是关于 vscode-nvim 如何工作的，摘自官方文档：
 
-- VScode 连接到 neovim 实例
-- 打开某个文件时，会在 nvim 中创建一个暂存缓冲区，并使用来自 vscode 的文本内容进行初始化
-- NORMAL / VISUAL 模式命令直接发送到 neovim。该扩展程序侦听缓冲区事件并应用来自 neovim 的编辑
-- 当进入插入模式时，扩展停止监听击键事件并将打字模式委托给 vscode（这里没有执行 Neovim 通信）
-- 从插入模式按下退出键后，扩展程序将从插入模式获得的更改发送到 Neovim
+-   VScode 连接到 neovim 实例
+-   打开某个文件时，会在 nvim 中创建一个暂存缓冲区，并使用来自 vscode 的文本内容进行初始化
+-   NORMAL / VISUAL 模式命令直接发送到 neovim。该扩展程序侦听缓冲区事件并应用来自 neovim 的编辑
+-   当进入插入模式时，扩展停止监听击键事件并将打字模式委托给 vscode（这里没有执行 Neovim 通信）
+-   从插入模式按下退出键后，扩展程序将从插入模式获得的更改发送到 Neovim
 
 ## 差异对比
 
 以下是 vscode-nvim 与原生 nvim 的使用差异对比，摘自官方文档：
 
-- 例如命令模式下的:e、:w、:q、:sp 系列、:tab 系列等命令实际上都不是调用的 nvim 指令完成的，而是调用的 vscode 指令，不要像在 nvim 中一样使用它们，比如 ctrl+r 命令在 nvim 下是 redo 命令，而在 vscode 下则不会有任何效果，你可以在后面通过更改热键来改变它们
-- 可视模式不会产生 vscode 选择，因此任何需要选择的 vscode 命令都不起作用。但是可以通过默认热键(f1/ctrl/cmd+shift+p)从可视模式调用 vscode 命令选择器将 vim 选择转换为真正的 vscode 选择。对于某些命令（例如注释和格式设置），此转换也会自动完成。如果您使用一些自定义映射来调用依赖于真实 vscode 选择的 vscode 命令，您可以使用 VSCodeNotifyRange/VSCodeNotifyRangePo（第一个逐行，后一个字符），它将在调用命令之前会将 vim 视觉模式选择转换为 vscode 选择
-- 当您键入某些命令时，它们可能会替换另一个命令，例如:write 将替换为:Write.这是正常的。
-- 滚动是由 VSCode 完成的。而 `<C-d> / <C-u> / etc`略有不同
-- 编辑器自定义（相对行号、滚动条等）由 VSCode 处理
-- 点重复(.)略有不同-在更改范围内移动光标不会破坏重复序列。在 Neovim 中，如果您`abc<cursor>`在插入模式下输入，则将光标移至`a<cursor>bc`并 1 在此处输入重复序列将是 1.但是在 vscode 中它会是 a1bc.另一个区别是，当您在插入模式下删除某些文本时，点重复仅从右到左起作用，这意味着在运行点重复时它会将 Del 键视为 BS 键
+-   例如命令模式下的:e、:w、:q、:sp 系列、:tab 系列等命令实际上都不是调用的 nvim 指令完成的，而是调用的 vscode 指令，不要像在 nvim 中一样使用它们，比如 ctrl+r 命令在 nvim 下是 redo 命令，而在 vscode 下则不会有任何效果，你可以在后面通过更改热键来改变它们
+-   可视模式不会产生 vscode 选择，因此任何需要选择的 vscode 命令都不起作用。但是可以通过默认热键(f1/ctrl/cmd+shift+p)从可视模式调用 vscode 命令选择器将 vim 选择转换为真正的 vscode 选择。对于某些命令（例如注释和格式设置），此转换也会自动完成。如果您使用一些自定义映射来调用依赖于真实 vscode 选择的 vscode 命令，您可以使用 VSCodeNotifyRange/VSCodeNotifyRangePo（第一个逐行，后一个字符），它将在调用命令之前会将 vim 视觉模式选择转换为 vscode 选择
+-   当您键入某些命令时，它们可能会替换另一个命令，例如:write 将替换为:Write.这是正常的。
+-   滚动是由 VSCode 完成的。而 `<C-d> / <C-u> / etc`略有不同
+-   编辑器自定义（相对行号、滚动条等）由 VSCode 处理
+-   点重复(.)略有不同-在更改范围内移动光标不会破坏重复序列。在 Neovim 中，如果您`abc<cursor>`在插入模式下输入，则将光标移至`a<cursor>bc`并 1 在此处输入重复序列将是 1.但是在 vscode 中它会是 a1bc.另一个区别是，当您在插入模式下删除某些文本时，点重复仅从右到左起作用，这意味着在运行点重复时它会将 Del 键视为 BS 键
 
 # 定义热键
 
@@ -101,7 +101,7 @@ $ defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
 
 我们只需要将这段 vimscript 放置在~/.config/nvim/init.vim 文件中即可。
 
-- Ps：~/.config/nvim/init.vim 文件是 nvim 的配置文件，如果不存在，那么请创建它
+-   Ps：~/.config/nvim/init.vim 文件是 nvim 的配置文件，如果不存在，那么请创建它
 
 如下所示：
 
@@ -117,9 +117,9 @@ endif
 
 举一个简单的例子，我下面有 3 个 nvim 选项：
 
-- set mouse=a：让 nvim 支持鼠标操作，我希望在 nvim 正常启动时加载
-- set nobackup：不创建备份文件，我希望在 nvim 作为 vscode-nvim 插件依赖进行启动时加载
-- let mapleader = "\<space>"：设置前导键，我希望无论 nvim 在那种情况下启动都进行加载
+-   set mouse=a：让 nvim 支持鼠标操作，我希望在 nvim 正常启动时加载
+-   set nobackup：不创建备份文件，我希望在 nvim 作为 vscode-nvim 插件依赖进行启动时加载
+-   let mapleader = "\<space>"：设置前导键，我希望无论 nvim 在那种情况下启动都进行加载
 
 这个时候就可以对~/.config/nvim/init.vim 文件进行这样的编辑：
 
@@ -171,7 +171,7 @@ VSCodeNotifyVisual(command, leaveSelection, ...)
 
 我目前使用的是 mac 平台，所以 cmd 按键会比 ctrl 按键更加常用，如果是 windows 或者 linux 平台，则将 cmd 替换为 ctrl 按键即可。
 
-```dos
+```
 cmd + g c ： 显示命令面板
 cmd + g s ： 打开设置页面
 cmd + g k ： 打开热键映射
@@ -250,270 +250,270 @@ g] ： 跳转到下一个问题
 
 ```json
 [
-  // 按jj退出INSERT模式
-  {
-    "command": "vscode-neovim.compositeEscape1",
-    "key": "j",
-    "when": "neovim.mode == insert && editorTextFocus",
-    "args": "j"
-  },
-  // 显示命令面板
-  {
-    "key": "cmd+g c",
-    "command": "workbench.action.showCommands"
-  },
-  // 打开设置页面
-  {
-    "key": "cmd+g s",
-    "command": "workbench.action.openSettings"
-  },
-  // 打开热键映射
-  {
-    "key": "cmd+g k",
-    "command": "workbench.action.openGlobalKeybindings"
-  },
-  // 打开一个目录
-  {
-    "key": "cmd+g d",
-    "command": "workbench.action.files.openFolder"
-  },
-  // 打开一个文件
-  {
-    "key": "cmd+g f",
-    "command": "workbench.action.files.openFile"
-  },
-  // 打开最近记录
-  {
-    "key": "cmd+g h",
-    "command": "workbench.action.openRecent"
-  },
-  // 新建vscode实例
-  {
-    "key": "cmd+g n",
-    "command": "workbench.action.newWindow"
-  },
-  // 关闭vscode实例
-  {
-    "key": "cmd+g q",
-    "command": "workbench.action.closeWindow"
-  },
-  // 新建文件
-  {
-    "key": "cmd+f n",
-    "command": "welcome.showNewFileEntries"
-  },
-  // 打开文件
-  {
-    "key": "cmd+f o",
-    "command": "workbench.action.files.openFileFolder"
-  },
-  // 另存为文件
-  {
-    "key": "cmd+f e",
-    "command": "workbench.action.files.saveAs"
-  },
-  // 保存文件
-  {
-    "key": "cmd+f s",
-    "command": "workbench.action.files.save"
-  },
-  // 保存所有文件
-  {
-    "key": "cmd+f w",
-    "command": "workbench.action.files.saveAll"
-  },
-  // 关闭文件
-  {
-    "key": "cmd+f q",
-    "command": "workbench.action.closeActiveEditor"
-  },
-  // 关闭所有文件
-  {
-    "key": "cmd+f a",
-    "command": "workbench.action.closeAllEditors"
-  },
-  // 切换侧边栏显示状态
-  {
-    "key": "cmd+n [",
-    "command": "workbench.action.toggleSidebarVisibility"
-  },
-  // 显示文件资源管理器
-  {
-    "key": "cmd+n 1",
-    "command": "workbench.files.action.focusFilesExplorer"
-  },
-  // 显示TODO Tree
-  {
-    "key": "cmd+n 2",
-    "command": "todo-tree-view.focus"
-  },
-  // 显示全局搜索
-  {
-    "key": "cmd+n 3",
-    "command": "workbench.action.replaceInFiles"
-  },
-  // 显示debug
-  {
-    "key": "cmd+n 4",
-    "command": "workbench.view.debug",
-    "when": "viewContainer.workbench.view.debug.enabled"
-  },
-  // 显示版本控制
-  {
-    "key": "cmd+n 5",
-    "command": "workbench.view.scm",
-    "when": "workbench.scm.active"
-  },
-  // 显示SQL Tools
-  {
-    "key": "cmd+n 6",
-    "command": "workbench.view.extension.sqltoolsActivityBarContainer"
-  },
-  // 显示Docker
-  {
-    "key": "cmd+n 7",
-    "command": "workbench.view.extension.dockerView"
-  },
-  // 显示测试
-  {
-    "key": "cmd+n 8",
-    "command": "workbench.view.testing.focus"
-  },
-  // 显示插件商店
-  {
-    "key": "cmd+n 9",
-    "command": "workbench.view.extensions",
-    "when": "viewContainer.workbench.view.extensions.enabled"
-  },
-  // 切换面板显示状态
-  {
-    "key": "cmd+p [",
-    "command": "workbench.action.togglePanel"
-  },
-  // 显示问题
-  {
-    "key": "cmd+p 1",
-    "command": "workbench.panel.markers.view.focus"
-  },
-  // 显示输出
-  {
-    "key": "cmd+p 2",
-    "command": "workbench.action.output.toggleOutput",
-    "when": "workbench.panel.output.active"
-  },
-  // 显示终端
-  {
-    "key": "cmd+p 3",
-    "command": "workbench.action.terminal.toggleTerminal",
-    "when": "terminal.active"
-  },
-  // 显示调试控制台
-  {
-    "key": "cmd+p 4",
-    "command": "workbench.debug.action.toggleRepl",
-    "when": "workbench.panel.repl.view.active"
-  },
-  // 显示SQL CONSOLE
-  {
-    "key": "cmd+p 5",
-    "command": "workbench.view.extension.sqltoolsPanelContainer"
-  },
-  {
-    "key": "cmd+q",
-    "command": "workbench.action.closeActiveEditor"
-  },
-  // 聚集在第一个选项卡中
-  {
-    "key": "cmd+e",
-    "command": "workbench.action.focusFirstEditorGroup"
-  },
-  // 切换到上一个选项卡
-  {
-    "key": "cmd+,",
-    "command": "workbench.action.previousEditor"
-  },
-  // 切换到下一个选项卡
-  {
-    "key": "cmd+.",
-    "command": "workbench.action.nextEditor"
-  },
-  // 触发帮助提示
-  {
-    "key": "cmd+h",
-    "command": "editor.action.showHover",
-    "when": "editorTextFocus"
-  },
-  // 触发参数提示
-  {
-    "key": "cmd+j",
-    "command": "editor.action.triggerParameterHints",
-    "when": "editorHasSignatureHelpProvider && editorTextFocus"
-  },
-  {
-    "key": "cmd+j",
-    "command": "closeParameterHints",
-    "when": "editorFocus && parameterHintsVisible"
-  },
-  // 触发建议提示
-  {
-    "key": "cmd+k",
-    "command": "editor.action.triggerSuggest",
-    "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
-  },
-  {
-    "key": "cmd+k",
-    "command": "hideSuggestWidget",
-    "when": "suggestWidgetVisible && textInputFocus"
-  },
-  // 触发快速修复
-  {
-    "key": "cmd+m",
-    "command": "editor.action.quickFix",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-  },
-  {
-    "key": "cmd+.",
-    "command": "-editor.action.quickFix",
-    "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
-  },
-  // 移动到下一个建议
-  {
-    "key": "cmd+n",
-    "command": "selectNextSuggestion",
-    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-  },
-  // 移动到上一个建议
-  {
-    "key": "cmd+p",
-    "command": "selectPrevSuggestion",
-    "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
-  },
-  // 放大字体
-  {
-    "key": "cmd+=",
-    "command": "editor.action.fontZoomIn"
-  },
-  // 缩小字体
-  {
-    "key": "cmd+-",
-    "command": "editor.action.fontZoomOut"
-  },
-  // 格式化代码
-  {
-    "key": "cmd+alt+l",
-    "command": "editor.action.formatDocument",
-    "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
-  },
-  // 选择全部, 在文本焦距点中失效
-  {
-    "key": "cmd+a",
-    "command": "editor.action.selectAll",
-    "when": "!editorTextFocus"
-  },
-  {
-    "key": "cmd+a",
-    "command": "-editor.action.selectAll"
-  }
+    // 按jj退出INSERT模式
+    {
+        "command": "vscode-neovim.compositeEscape1",
+        "key": "j",
+        "when": "neovim.mode == insert && editorTextFocus",
+        "args": "j"
+    },
+    // 显示命令面板
+    {
+        "key": "cmd+g c",
+        "command": "workbench.action.showCommands"
+    },
+    // 打开设置页面
+    {
+        "key": "cmd+g s",
+        "command": "workbench.action.openSettings"
+    },
+    // 打开热键映射
+    {
+        "key": "cmd+g k",
+        "command": "workbench.action.openGlobalKeybindings"
+    },
+    // 打开一个目录
+    {
+        "key": "cmd+g d",
+        "command": "workbench.action.files.openFolder"
+    },
+    // 打开一个文件
+    {
+        "key": "cmd+g f",
+        "command": "workbench.action.files.openFile"
+    },
+    // 打开最近记录
+    {
+        "key": "cmd+g h",
+        "command": "workbench.action.openRecent"
+    },
+    // 新建vscode实例
+    {
+        "key": "cmd+g n",
+        "command": "workbench.action.newWindow"
+    },
+    // 关闭vscode实例
+    {
+        "key": "cmd+g q",
+        "command": "workbench.action.closeWindow"
+    },
+    // 新建文件
+    {
+        "key": "cmd+f n",
+        "command": "welcome.showNewFileEntries"
+    },
+    // 打开文件
+    {
+        "key": "cmd+f o",
+        "command": "workbench.action.files.openFileFolder"
+    },
+    // 另存为文件
+    {
+        "key": "cmd+f e",
+        "command": "workbench.action.files.saveAs"
+    },
+    // 保存文件
+    {
+        "key": "cmd+f s",
+        "command": "workbench.action.files.save"
+    },
+    // 保存所有文件
+    {
+        "key": "cmd+f w",
+        "command": "workbench.action.files.saveAll"
+    },
+    // 关闭文件
+    {
+        "key": "cmd+f q",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    // 关闭所有文件
+    {
+        "key": "cmd+f a",
+        "command": "workbench.action.closeAllEditors"
+    },
+    // 切换侧边栏显示状态
+    {
+        "key": "cmd+n [",
+        "command": "workbench.action.toggleSidebarVisibility"
+    },
+    // 显示文件资源管理器
+    {
+        "key": "cmd+n 1",
+        "command": "workbench.files.action.focusFilesExplorer"
+    },
+    // 显示TODO Tree
+    {
+        "key": "cmd+n 2",
+        "command": "todo-tree-view.focus"
+    },
+    // 显示全局搜索
+    {
+        "key": "cmd+n 3",
+        "command": "workbench.action.replaceInFiles"
+    },
+    // 显示debug
+    {
+        "key": "cmd+n 4",
+        "command": "workbench.view.debug",
+        "when": "viewContainer.workbench.view.debug.enabled"
+    },
+    // 显示版本控制
+    {
+        "key": "cmd+n 5",
+        "command": "workbench.view.scm",
+        "when": "workbench.scm.active"
+    },
+    // 显示SQL Tools
+    {
+        "key": "cmd+n 6",
+        "command": "workbench.view.extension.sqltoolsActivityBarContainer"
+    },
+    // 显示Docker
+    {
+        "key": "cmd+n 7",
+        "command": "workbench.view.extension.dockerView"
+    },
+    // 显示测试
+    {
+        "key": "cmd+n 8",
+        "command": "workbench.view.testing.focus"
+    },
+    // 显示插件商店
+    {
+        "key": "cmd+n 9",
+        "command": "workbench.view.extensions",
+        "when": "viewContainer.workbench.view.extensions.enabled"
+    },
+    // 切换面板显示状态
+    {
+        "key": "cmd+p [",
+        "command": "workbench.action.togglePanel"
+    },
+    // 显示问题
+    {
+        "key": "cmd+p 1",
+        "command": "workbench.panel.markers.view.focus"
+    },
+    // 显示输出
+    {
+        "key": "cmd+p 2",
+        "command": "workbench.action.output.toggleOutput",
+        "when": "workbench.panel.output.active"
+    },
+    // 显示终端
+    {
+        "key": "cmd+p 3",
+        "command": "workbench.action.terminal.toggleTerminal",
+        "when": "terminal.active"
+    },
+    // 显示调试控制台
+    {
+        "key": "cmd+p 4",
+        "command": "workbench.debug.action.toggleRepl",
+        "when": "workbench.panel.repl.view.active"
+    },
+    // 显示SQL CONSOLE
+    {
+        "key": "cmd+p 5",
+        "command": "workbench.view.extension.sqltoolsPanelContainer"
+    },
+    {
+        "key": "cmd+q",
+        "command": "workbench.action.closeActiveEditor"
+    },
+    // 聚集在第一个选项卡中
+    {
+        "key": "cmd+e",
+        "command": "workbench.action.focusFirstEditorGroup"
+    },
+    // 切换到上一个选项卡
+    {
+        "key": "cmd+,",
+        "command": "workbench.action.previousEditor"
+    },
+    // 切换到下一个选项卡
+    {
+        "key": "cmd+.",
+        "command": "workbench.action.nextEditor"
+    },
+    // 触发帮助提示
+    {
+        "key": "cmd+h",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus"
+    },
+    // 触发参数提示
+    {
+        "key": "cmd+j",
+        "command": "editor.action.triggerParameterHints",
+        "when": "editorHasSignatureHelpProvider && editorTextFocus"
+    },
+    {
+        "key": "cmd+j",
+        "command": "closeParameterHints",
+        "when": "editorFocus && parameterHintsVisible"
+    },
+    // 触发建议提示
+    {
+        "key": "cmd+k",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorHasCompletionItemProvider && textInputFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+k",
+        "command": "hideSuggestWidget",
+        "when": "suggestWidgetVisible && textInputFocus"
+    },
+    // 触发快速修复
+    {
+        "key": "cmd+m",
+        "command": "editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    {
+        "key": "cmd+.",
+        "command": "-editor.action.quickFix",
+        "when": "editorHasCodeActionsProvider && editorTextFocus && !editorReadonly"
+    },
+    // 移动到下一个建议
+    {
+        "key": "cmd+n",
+        "command": "selectNextSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    // 移动到上一个建议
+    {
+        "key": "cmd+p",
+        "command": "selectPrevSuggestion",
+        "when": "suggestWidgetMultipleSuggestions && suggestWidgetVisible && textInputFocus"
+    },
+    // 放大字体
+    {
+        "key": "cmd+=",
+        "command": "editor.action.fontZoomIn"
+    },
+    // 缩小字体
+    {
+        "key": "cmd+-",
+        "command": "editor.action.fontZoomOut"
+    },
+    // 格式化代码
+    {
+        "key": "cmd+alt+l",
+        "command": "editor.action.formatDocument",
+        "when": "editorHasDocumentFormattingProvider && editorTextFocus && !editorReadonly && !inCompositeEditor"
+    },
+    // 选择全部, 在文本焦距点中失效
+    {
+        "key": "cmd+a",
+        "command": "editor.action.selectAll",
+        "when": "!editorTextFocus"
+    },
+    {
+        "key": "cmd+a",
+        "command": "-editor.action.selectAll"
+    }
 ]
 ```
 
@@ -810,7 +810,7 @@ vscode-nvim 插件中的 VISUAL 模式并非真正的 vscode 选择，这是我�
 
 尽管 vscode-nvim 提供了以下热键来将 VISUAL 模式下的选择变更为 vscode 选择，但是仍然会出现一些问题，它仍然不是选择全部的 VISUAL 行：
 
-```dos
+```
 f1
 ctrl+shift+p
 cmd+shift+p
@@ -834,17 +834,17 @@ cmd+shift+p
 
 1）任何经常渲染装饰器的东西：
 
-- 行号扩展（VSCode 内置了对普通/相对行号的支持）
-- 缩进指南扩展（VSCode 有内置的缩进指南）
-- 括号荧光笔扩展（VSCode 有内置功能）
+-   行号扩展（VSCode 内置了对普通/相对行号的支持）
+-   缩进指南扩展（VSCode 有内置的缩进指南）
+-   括号荧光笔扩展（VSCode 有内置功能）
 
 2）延迟扩展主机的 VSCode 扩展，如“Bracket Pair Colorizer”
 
 3）增加延迟并导致性能问题的 VIM 插件。
 
-- 确保禁用不需要的插件，因为其中许多插件对 vscode 没有意义并且可能会导致问题。
-- 您不需要任何代码、突出显示、完成、lsp 插件以及任何生成窗口/缓冲区（nerdtree 和类似的）、模糊查找器等的插件。
-- 许多导航/文本对象/编辑插件应该没问题。
+-   确保禁用不需要的插件，因为其中许多插件对 vscode 没有意义并且可能会导致问题。
+-   您不需要任何代码、突出显示、完成、lsp 插件以及任何生成窗口/缓冲区（nerdtree 和类似的）、模糊查找器等的插件。
+-   许多导航/文本对象/编辑插件应该没问题。
 
 如果不确定，请禁用所有其他扩展且重新加载 vscode window，并在报告之前查看问题是否仍然存在。
 
